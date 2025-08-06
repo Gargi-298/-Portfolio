@@ -47,7 +47,10 @@
         }
         .testimonial-card {
             background-color: #fff;
-            border-top: 4px solid #f8d4ff; /* brand-primary */
+            border-top: 4px solid #da8ee7; /* brand-primary */
+        }
+        .modal {
+            transition: opacity 0.25s ease;
         }
     </style>
 </head>
@@ -90,14 +93,23 @@
     <main>
         <!-- Hero Section -->
         <section id="home" class="pt-32 pb-20 md:pt-48 md:pb-32">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <img src="11.jpeg" alt="Gargi Bisht" class="rounded-full w-40 h-40 object-cover mx-auto mb-8 border-4 border-white shadow-lg">
-                <h1 class="text-4xl md:text-6xl font-bold text-brand-text tracking-tight leading-tight">
-                    Aspiring Content Writer & Storyteller
-                </h1>
-                <p class="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-brand-text/70">
-                    Creative and detail-oriented journalism student with a passion for crafting impactful articles, blogs, and web content.
-                </p>
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 text-center md:text-left">
+                    <!-- Profile Image -->
+                    <img src="11.jpeg" alt="Gargi Bisht" class="rounded-full w-40 h-40 object-cover border-4 border-white shadow-lg flex-shrink-0">
+                    
+                    <!-- Text Content -->
+                    <div>
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-text tracking-tight leading-tight">
+                            Aspiring Content Writer & Storyteller
+                        </h1>
+                        <p class="mt-6 max-w-xl mx-auto md:mx-0 text-lg md:text-xl text-brand-text/70">
+                            Creative and detail-oriented journalism student with a passion for crafting impactful articles, blogs, and web content.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Buttons -->
                 <div class="mt-10 flex justify-center items-center flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
                     <a href="#portfolio" class="w-full sm:w-auto bg-brand-primary hover:bg-brand-primary-hover text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 text-center">
                         View My Portfolio
@@ -160,6 +172,18 @@
                     <p class="mt-4 max-w-2xl mx-auto text-lg text-brand-text/70">A selection of projects that showcase my writing and content creation skills.</p>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- New Article: Magic Bullet Theory -->
+                    <div class="sample-card bg-white rounded-2xl overflow-hidden group shadow-lg">
+                        <div class="relative">
+                            <!-- Make sure '33.jpg' is in the same folder as your index.html file -->
+                            <img src="33.jpg" alt="Magic Bullet Theory Article" class="w-full h-60 object-cover transition-transform duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-brand-text">Magic Bullet Theory</h3>
+                            <p class="mt-2 text-brand-text/70">An analysis of how media shapes our perceptions.</p>
+                            <button onclick="openModal('modal-magic-bullet')" class="inline-block mt-4 font-semibold text-brand-primary hover:text-brand-primary-hover">Read Article &rarr;</button>
+                        </div>
+                    </div>
                     <!-- Sample 1 -->
                     <div class="sample-card bg-white rounded-2xl overflow-hidden group shadow-lg">
                         <div class="relative">
@@ -180,17 +204,6 @@
                             <h3 class="text-xl font-bold text-brand-text">Editorial</h3>
                             <p class="mt-2 text-brand-text/70">A persuasive piece on a current campus issue.</p>
                             <a href="#" class="inline-block mt-4 font-semibold text-brand-primary hover:text-brand-primary-hover">Read Editorial &rarr;</a>
-                        </div>
-                    </div>
-                    <!-- Sample 3 -->
-                    <div class="sample-card bg-white rounded-2xl overflow-hidden group shadow-lg">
-                         <div class="relative">
-                            <img src="https://placehold.co/600x400/da8ee7/3D3B38?text=Campaign+Content" alt="Campaign Content" class="w-full h-60 object-cover transition-transform duration-500">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-brand-text">#SafeCampus Campaign</h3>
-                            <p class="mt-2 text-brand-text/70">Informative posts for a digital safety campaign.</p>
-                             <a href="#" class="inline-block mt-4 font-semibold text-brand-primary hover:text-brand-primary-hover">View Content &rarr;</a>
                         </div>
                     </div>
                 </div>
@@ -268,8 +281,87 @@
         </div>
     </footer>
 
+    <!-- Article Modal -->
+    <div id="modal-magic-bullet" class="modal fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75 hidden">
+        <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-3xl w-full relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal('modal-magic-bullet')" class="sticky top-0 float-right -mr-4 -mt-4 text-gray-500 hover:text-gray-800 bg-white rounded-full p-1">
+                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <h2 class="text-3xl font-bold text-brand-text mb-6">Why the Magic Bullet Theory Still Matters: How Media Shapes Us (and Why We Should Think Twice)</h2>
+            <div class="prose max-w-none text-brand-text/80">
+                <p class="mb-4">Have you ever scrolled through social media, watched the news, and felt like everyone around you suddenly believed the same story—without blinking an eye? That’s something communication experts have been thinking about for a long time, thanks to the Magic Bullet Theory.</p>
+                <p class="mb-4">Let me break it down in a way that makes sense for everyone—whether you’re a student, a professional, or just someone who’s been swept up in a viral headline.</p>
+                
+                <h3 class="text-2xl font-bold text-brand-text mt-6 mb-4">What is the Magic Bullet Theory?</h3>
+                <p class="mb-4">Think of media messages (TV, news, social media, etc.) like arrows shot straight into your mind. The Magic Bullet Theory—also called the hypodermic needle model—suggests that these messages hit all of us directly and powerfully, with everyone reacting the same way. In this theory, we’re like sponges: the message goes out, and we soak it up instantly.</p>
+                <p class="mb-4">This idea began way back when radio and film first took off, because people noticed how quickly public opinion could shift after a single broadcast or speech.</p>
+
+                <h3 class="text-2xl font-bold text-brand-text mt-6 mb-4">Passive Audience vs. Active Audience: Are We All the Same?</h3>
+                <p class="mb-4">Here’s where real life is more interesting than theory:</p>
+                <ul class="list-disc list-inside mb-4 space-y-2">
+                    <li><b>Passive Audiences</b> are like those sponges mentioned before—they soak up whatever media gives them. If the news says it, they believe it, no questions asked. That makes them very open to being influenced—good or bad.</li>
+                    <li><b>Active Audiences</b> are the opposite. They question, double-check, and talk about what they see and hear. The “magic bullet” might bounce off them, or at the very least, they’ll take a moment before believing it.</li>
+                </ul>
+                <p class="mb-4">Do you see yourself in one of these groups? Most of us probably change roles depending on the topic or our mood!</p>
+
+                <h3 class="text-2xl font-bold text-brand-text mt-6 mb-4">How Does This Lead to Misinformation, Disinformation, and Malinformation?</h3>
+                <p class="mb-4">Here’s where things get messy:</p>
+                <ul class="list-disc list-inside mb-4 space-y-2">
+                    <li><b>Misinformation</b> is just wrong info—maybe spread by mistake.</li>
+                    <li><b>Disinformation</b> is fake news on purpose; someone wants you to believe a lie.</li>
+                    <li><b>Malinformation</b> is true (but private or damaging) info that’s shared to hurt others. This is the sneakiest kind, because it’s based on real facts, but those facts are used to shame or destroy someone’s reputation.</li>
+                </ul>
+                <p class="mb-4">According to the Magic Bullet Theory, passive audiences are most at risk. They might quickly believe (and share) shocking claims or private info without asking, “Is this fair or accurate?” That’s how malinformation can deeply hurt individuals and communities. One viral “truth” can ruin a reputation in seconds.</p>
+                
+                <h3 class="text-2xl font-bold text-brand-text mt-6 mb-4">Are We All Easily Influenced By Malinformation?</h3>
+                <p class="mb-4">Honestly, it depends. Those who accept everything at face value are most likely to be influenced. In a social media-fueled world, where sharing is a reflex, anyone can become a victim or a spreader of malinformation if they aren’t careful.</p>
+
+                <h3 class="text-2xl font-bold text-brand-text mt-6 mb-4">The Double-Edged Sword: Positives and Negatives</h3>
+                <table class="w-full text-left border-collapse mb-4">
+                    <thead>
+                        <tr>
+                            <th class="border p-2 bg-brand-secondary/20">Positives</th>
+                            <th class="border p-2 bg-brand-secondary/20">Negatives</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="border p-2">Urgent info spreads quickly (emergencies)</td>
+                            <td class="border p-2">Rumors/fake news go viral, even if untrue</td>
+                        </tr>
+                        <tr>
+                            <td class="border p-2">Public health campaigns are effective</td>
+                            <td class="border p-2">People stop questioning, become less critical</td>
+                        </tr>
+                         <tr>
+                            <td class="border p-2">Can unite people for good causes</td>
+                            <td class="border p-2">Easily exploited by bad actors</td>
+                        </tr>
+                         <tr>
+                            <td class="border p-2">Info reaches everyone fast</td>
+                            <td class="border p-2">Reputations can be ruined fast</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="text-2xl font-bold text-brand-text mt-6 mb-4">My Takeaway</h3>
+                <p class="mb-4">Media is everywhere, and it’s powerful—but so am I, and so are you. The Magic Bullet Theory shows us we’re at risk of being influenced whenever we “absorb without thinking.” But by becoming active audiences—questioning, checking, and discussing—we can use media’s strengths while dodging its dangers.</p>
+                <p>So next time you hear the latest “shocking news,” stop and think. Don’t let yourself be just another target for the magic bullet. Let’s be smarter together.</p>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Mobile menu toggle
+        // --- Modal Logic ---
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.remove('hidden');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+        }
+
+        // --- Mobile menu toggle ---
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileLinks = document.querySelectorAll('.mobile-link');
@@ -284,7 +376,7 @@
             });
         });
 
-        // Smooth scrolling for anchor links
+        // --- Smooth scrolling for anchor links ---
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -297,7 +389,7 @@
             });
         });
 
-        // Header scroll effect
+        // --- Header scroll effect ---
         const header = document.getElementById('header');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
