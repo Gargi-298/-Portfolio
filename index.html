@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Swiper.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <script>
         tailwind.config = {
             theme: {
@@ -51,6 +53,13 @@
         }
         .modal {
             transition: opacity 0.25s ease;
+        }
+        /* Swiper custom styles */
+        .swiper-button-next, .swiper-button-prev {
+            color: #da8ee7;
+        }
+        .swiper-pagination-bullet-active {
+            background-color: #da8ee7;
         }
     </style>
 </head>
@@ -185,40 +194,78 @@
                     <h2 class="text-3xl md:text-4xl font-bold text-brand-text tracking-tight">My Portfolio & Projects</h2>
                     <p class="mt-4 max-w-2xl mx-auto text-lg text-brand-text/70">A selection of projects that showcase my writing and content creation skills.</p>
                 </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- New Article: The Real Truth of Life -->
-                    <div class="sample-card bg-white rounded-2xl overflow-hidden group shadow-lg">
-                        <div class="relative">
-                            <img src="life.png" alt="The Real Truth of Life" class="w-full h-60 object-cover transition-transform duration-500">
+                <!-- Swiper -->
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <!-- Magic Bullet Theory Article -->
+                        <div class="swiper-slide">
+                           <div class="sample-card bg-white rounded-2xl overflow-hidden group shadow-lg mx-auto max-w-sm">
+                                <div class="relative">
+                                    <img src="33.png" alt="Magic Bullet Theory" class="w-full h-60 object-cover transition-transform duration-500">
+                                </div>
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold text-brand-text">Magic Bullet Theory</h3>
+                                    <p class="mt-2 text-brand-text/70">How Media Shapes Us.</p>
+                                    <button onclick="openModal('modal-magic-bullet')" class="inline-block mt-4 font-semibold text-brand-primary hover:text-brand-primary-hover">Read Article &rarr;</button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-brand-text">The Real Truth of Life</h3>
-                            <p class="mt-2 text-brand-text/70">A simple, honest story.</p>
-                            <button onclick="openModal('modal-real-truth')" class="inline-block mt-4 font-semibold text-brand-primary hover:text-brand-primary-hover">Read Article &rarr;</button>
+                        <!-- Bitcoin Article -->
+                        <div class="swiper-slide">
+                            <div class="sample-card bg-white rounded-2xl overflow-hidden group shadow-lg mx-auto max-w-sm">
+                                <div class="relative">
+                                    <img src="bit.jpg" alt="What is Bitcoin?" class="w-full h-60 object-cover transition-transform duration-500">
+                                </div>
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold text-brand-text">What is Bitcoin?</h3>
+                                    <p class="mt-2 text-brand-text/70">A simple guide to digital money.</p>
+                                    <button onclick="openModal('modal-bitcoin')" class="inline-block mt-4 font-semibold text-brand-primary hover:text-brand-primary-hover">Read Article &rarr;</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Blockchain Article -->
+                        <div class="swiper-slide">
+                            <div class="sample-card bg-white rounded-2xl overflow-hidden group shadow-lg mx-auto max-w-sm">
+                                <div class="relative">
+                                    <img src="bloc.jpg" alt="What is Blockchain?" class="w-full h-60 object-cover transition-transform duration-500">
+                                </div>
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold text-brand-text">What is Blockchain?</h3>
+                                    <p class="mt-2 text-brand-text/70">A simple guide to the technology behind cryptocurrencies.</p>
+                                    <button onclick="openModal('modal-blockchain')" class="inline-block mt-4 font-semibold text-brand-primary hover:text-brand-primary-hover">Read Article &rarr;</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- The Real Truth of Life Article -->
+                        <div class="swiper-slide">
+                            <div class="sample-card bg-white rounded-2xl overflow-hidden group shadow-lg mx-auto max-w-sm">
+                                <div class="relative">
+                                    <img src="life.png" alt="The Real Truth of Life" class="w-full h-60 object-cover transition-transform duration-500">
+                                </div>
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold text-brand-text">The Real Truth of Life</h3>
+                                    <p class="mt-2 text-brand-text/70">A simple, honest story.</p>
+                                    <button onclick="openModal('modal-real-truth')" class="inline-block mt-4 font-semibold text-brand-primary hover:text-brand-primary-hover">Read Article &rarr;</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Reading Empowers Article -->
+                        <div class="swiper-slide">
+                           <div class="sample-card bg-white rounded-2xl overflow-hidden group shadow-lg mx-auto max-w-sm">
+                                <div class="relative">
+                                    <img src="book.png" alt="Why Reading Books Empowers Us" class="w-full h-60 object-cover transition-transform duration-500">
+                                </div>
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold text-brand-text">Why Reading Books Empowers Us</h3>
+                                    <p class="mt-2 text-brand-text/70">Exploring how pages transform our mind and body.</p>
+                                    <button onclick="openModal('modal-reading-empowers')" class="inline-block mt-4 font-semibold text-brand-primary hover:text-brand-primary-hover">Read Article &rarr;</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <!-- Article: Reading Empowers -->
-                    <div class="sample-card bg-white rounded-2xl overflow-hidden group shadow-lg">
-                        <div class="relative">
-                            <img src="book.png" alt="Why Reading Books Empowers Us" class="w-full h-60 object-cover transition-transform duration-500">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-brand-text">Why Reading Books Empowers Us</h3>
-                            <p class="mt-2 text-brand-text/70">Exploring how pages transform our mind and body.</p>
-                            <button onclick="openModal('modal-reading-empowers')" class="inline-block mt-4 font-semibold text-brand-primary hover:text-brand-primary-hover">Read Article &rarr;</button>
-                        </div>
-                    </div>
-                    <!-- Article: Magic Bullet Theory -->
-                    <div class="sample-card bg-white rounded-2xl overflow-hidden group shadow-lg">
-                        <div class="relative">
-                            <img src="33.png" alt="Magic Bullet Theory Article" class="w-full h-60 object-cover transition-transform duration-500">
-                        </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-brand-text">Magic Bullet Theory</h3>
-                            <p class="mt-2 text-brand-text/70">An analysis of how media shapes our perceptions.</p>
-                            <button onclick="openModal('modal-magic-bullet')" class="inline-block mt-4 font-semibold text-brand-primary hover:text-brand-primary-hover">Read Article &rarr;</button>
-                        </div>
-                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
                 </div>
             </div>
         </section>
@@ -294,7 +341,71 @@
         </div>
     </footer>
 
-    <!-- The Real Truth of Life Modal -->
+    <!-- Modals -->
+    <div id="modal-magic-bullet" class="modal fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75 hidden">
+        <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-3xl w-full relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal('modal-magic-bullet')" class="sticky top-0 float-right -mr-4 -mt-4 text-gray-500 hover:text-gray-800 bg-white rounded-full p-1">
+                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <h2 class="text-3xl font-bold text-brand-text mb-6">Why the Magic Bullet Theory Still Matters: How Media Shapes Us (and Why We Should Think Twice)</h2>
+            <div class="prose max-w-none text-brand-text/80">
+                <p class="mb-4">Have you ever scrolled through social media, watched the news, and felt like everyone around you suddenly believed the same story—without blinking an eye? That’s something communication experts have been thinking about for a long time, thanks to the Magic Bullet Theory.</p>
+                <p class="mb-4">Let me break it down in a way that makes sense for everyone—whether you’re a student, a professional, or just someone who’s been swept up in a viral headline.</p>
+                <h3 class="text-2xl font-bold text-brand-text mt-6 mb-4">What is the Magic Bullet Theory?</h3>
+                <p class="mb-4">Think of media messages (TV, news, social media, etc.) like arrows shot straight into your mind. The Magic Bullet Theory—also called the hypodermic needle model—suggests that these messages hit all of us directly and powerfully, with everyone reacting the same way. In this theory, we’re like sponges: the message goes out, and we soak it up instantly.</p>
+                <p class="mb-4">This idea began way back when radio and film first took off, because people noticed how quickly public opinion could shift after a single broadcast or speech.</p>
+                <h3 class="text-2xl font-bold text-brand-text mt-6 mb-4">Passive Audience vs. Active Audience: Are We All the Same?</h3>
+                <p class="mb-4">Here’s where real life is more interesting than theory:</p>
+                <ul class="list-disc list-inside mb-4 space-y-2">
+                    <li><b>Passive Audiences</b> are like those sponges mentioned before—they soak up whatever media gives them. If the news says it, they believe it, no questions asked. That makes them very open to being influenced—good or bad.</li>
+                    <li><b>Active Audiences</b> are the opposite. They question, double-check, and talk about what they see and hear. The “magic bullet” might bounce off them, or at the very least, they’ll take a moment before believing it.</li>
+                </ul>
+                <p class="mb-4">Do you see yourself in one of these groups? Most of us probably change roles depending on the topic or our mood!</p>
+                <h3 class="text-2xl font-bold text-brand-text mt-6 mb-4">How Does This Lead to Misinformation, Disinformation, and Malinformation?</h3>
+                <p class="mb-4">Here’s where things get messy~</p>
+                <ul class="list-disc list-inside mb-4 space-y-2">
+                    <li><b>Misinformation</b> is just wrong info—maybe spread by mistake.</li>
+                    <li><b>Disinformation</b> is fake news on purpose; someone wants you to believe a lie.</li>
+                    <li><b>Malinformation</b> is true (but private or damaging) info that’s shared to hurt others. This is the sneakiest kind, because it’s based on real facts, but those facts are used to shame or destroy someone’s reputation.</li>
+                </ul>
+                <p class="mb-4">According to the Magic Bullet Theory, passive audiences are most at risk. They might quickly believe (and share) shocking claims or private info without asking, “Is this fair or accurate?” That’s how malinformation can deeply hurt individuals and communities. One viral “truth” can ruin a reputation in seconds.</p>
+                <h3 class="text-2xl font-bold text-brand-text mt-6 mb-4">Are We All Easily Influenced By Malinformation?</h3>
+                <p class="mb-4">Honestly, it depends. Those who accept everything at face value are most likely to be influenced. In a social media-fueled world, where sharing is a reflex, anyone can become a victim or a spreader of malinformation if they aren’t.</p>
+                <p>So next time you hear the latest “shocking news,” stop and think. Don’t let yourself be just another target for the magic bullet. Let’s be smarter together.</p>
+            </div>
+        </div>
+    </div>
+    <div id="modal-bitcoin" class="modal fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75 hidden">
+        <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-3xl w-full relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal('modal-bitcoin')" class="sticky top-0 float-right -mr-4 -mt-4 text-gray-500 hover:text-gray-800 bg-white rounded-full p-1">
+                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <h2 class="text-3xl font-bold text-brand-text mb-6">What is Bitcoin?</h2>
+            <div class="prose max-w-none text-brand-text/80">
+                <p class="mb-4">Bitcoin is a special kind of money that exists only on the internet. Unlike coins and banknotes you can hold in your hand, Bitcoin is completely digital—there’s no physical form of it. People use Bitcoin to buy things, send money to friends, or invest, just like you might use rupees or dollars.</p>
+                <p class="mb-4">The most interesting thing about Bitcoin is that no one owns or controls it. There’s no bank, government, or company in charge. Instead, it runs on a computer network where thousands of people keep a record of every transaction. This record is called a “blockchain,” and it works like a big notebook that everyone can see but no one can secretly erase or change.</p>
+                <p class="mb-4">Getting Bitcoin is different from earning regular money. You can buy it online using your regular cash, or you can earn it by doing work for someone who pays in Bitcoin. There's also something called “mining,” where powerful computers solve puzzles to find new Bitcoins, but this is very technical and takes a lot of energy.</p>
+                <p class="mb-4">Bitcoin prices go up and down, sometimes quickly. Some people have made a lot of money by buying Bitcoin when the price is low and selling it when the price goes up. But the value can fall too, so it’s important not to risk more money than you can afford to lose.</p>
+                <p class="mb-4">People like Bitcoin because it’s fast, global, and private. You can send it anywhere in the world in minutes, and you don’t need to share your personal details unless you want to.</p>
+                <p>Overall, Bitcoin is an exciting new kind of money for the digital age. It can seem a bit confusing at first, but once you learn the basics, it’s easy to see why so many people find it fascinating.</p>
+            </div>
+        </div>
+    </div>
+    <div id="modal-blockchain" class="modal fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75 hidden">
+        <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-3xl w-full relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal('modal-blockchain')" class="sticky top-0 float-right -mr-4 -mt-4 text-gray-500 hover:text-gray-800 bg-white rounded-full p-1">
+                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <h2 class="text-3xl font-bold text-brand-text mb-6">What is Blockchain?</h2>
+            <div class="prose max-w-none text-brand-text/80">
+                <p class="mb-4">Imagine you have a notebook where you write down every game you play with your friends. You record who played, who won, and when the game happened. Everyone trusts this notebook because it’s honest and can’t be changed after a game is written down. Now, picture that instead of just your notebook, every friend in your group keeps a copy, and before you write something down, everyone checks to make sure it’s correct. This is the basic idea behind blockchain.</p>
+                <p class="mb-4">Blockchain is like a digital notebook shared by thousands of computers all over the world. It’s used to record important things—like sending money, trading digital goods, or making agreements. Every entry in the blockchain is called a “block,” and these blocks are linked together in order—like a long chain. Once a block is added, nobody can erase it or change what’s inside, so everyone can trust the information.</p>
+                <p class="mb-4">What makes blockchain special is how safe and fair it is. Instead of relying on one person or one company, everyone helps keep it accurate. If someone tries to cheat or add a fake block, all the other computers will spot the mistake and block the action.</p>
+                <p class="mb-4">Blockchain isn’t just for money. Companies use it for tracking shipments, doctors could record patient health information, and artists use it to protect their work. Because anyone with a computer can join in, it helps make things transparent and trustworthy for everyone.</p>
+                <p>In the future, blockchain could make sharing, trading, and keeping records easier and safer for people everywhere. It’s an invention that’s changing how the world works, one block at a time.</p>
+            </div>
+        </div>
+    </div>
     <div id="modal-real-truth" class="modal fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75 hidden">
         <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-3xl w-full relative max-h-[90vh] overflow-y-auto">
             <button onclick="closeModal('modal-real-truth')" class="sticky top-0 float-right -mr-4 -mt-4 text-gray-500 hover:text-gray-800 bg-white rounded-full p-1">
@@ -344,8 +455,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Reading Empowers Modal -->
     <div id="modal-reading-empowers" class="modal fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75 hidden">
         <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-3xl w-full relative max-h-[90vh] overflow-y-auto">
             <button onclick="closeModal('modal-reading-empowers')" class="sticky top-0 float-right -mr-4 -mt-4 text-gray-500 hover:text-gray-800 bg-white rounded-full p-1">
@@ -397,8 +506,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Magic Bullet Modal -->
     <div id="modal-magic-bullet" class="modal fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75 hidden">
         <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-3xl w-full relative max-h-[90vh] overflow-y-auto">
             <button onclick="closeModal('modal-magic-bullet')" class="sticky top-0 float-right -mr-4 -mt-4 text-gray-500 hover:text-gray-800 bg-white rounded-full p-1">
@@ -468,6 +575,8 @@
         </div>
     </div>
 
+    <!-- Swiper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         // --- Modal Logic ---
         function openModal(modalId) {
@@ -513,6 +622,31 @@
                 header.classList.add('header-scrolled');
             } else {
                 header.classList.remove('header-scrolled');
+            }
+        });
+
+        // --- Swiper Initialization ---
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                640: {
+                  slidesPerView: 2,
+                  spaceBetween: 20,
+                },
+                1024: {
+                  slidesPerView: 3,
+                  spaceBetween: 30,
+                },
             }
         });
     </script>
